@@ -70,7 +70,7 @@ while True:
     
     cv2.polylines(frame,[np.array(area1,np.int32)],True,(0,255,255),3)
     a1=len(area_1)
-    cv2.putText(frame,str(a1),(549,465),cv2.FONT_HERSHEY_PLAIN,3,(255,255,255),2)
+    cv2.putText(frame,str(a1),(549,465),cv2.FONT_HERSHEY_PLAIN,3,(0,0,0),2)
     cv2.imshow("FRAME",frame)
 
     out.write(frame)
