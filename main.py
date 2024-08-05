@@ -1,14 +1,17 @@
 import cv2
 import torch
 import numpy as np
-
 from tracker import *
 
 
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+
+# SET PATH TO YOUR VIDEO INPUT
 cap=cv2.VideoCapture('highway.mp4')
 
+# SET NAME, FORMAT, FPS, AND DIMENSIONS OF YOUR VIDEO OUTPUT
 out = cv2.VideoWriter('output.mp4', cv2.VideoWriter_fourcc(*'mp4v'),15, (1020, 600))
+
 
 
 count=0
@@ -22,7 +25,11 @@ def POINTS(event, x, y, flags, param):
 cv2.namedWindow('FRAME')
 cv2.setMouseCallback('FRAME', POINTS)
 
+
+# SET THE AREA YOU WANT TO TRACK
 area1=[(200,445),(200,472),(900,482),(900,449)]
+
+
 area_1=set()
 
 while True:
