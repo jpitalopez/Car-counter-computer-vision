@@ -4,10 +4,15 @@ import numpy as np
 from tracker import *
 
 
+
+print(torch.cuda.get_device_name(0))
+
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+
 
 # SET PATH TO YOUR VIDEO INPUT
 cap=cv2.VideoCapture('highway.mp4')
+
 
 # SET NAME, FORMAT, FPS, AND DIMENSIONS OF YOUR VIDEO OUTPUT
 out = cv2.VideoWriter('output.mp4', cv2.VideoWriter_fourcc(*'mp4v'),15, (1020, 600))
